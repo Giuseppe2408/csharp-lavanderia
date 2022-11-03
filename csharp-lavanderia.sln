@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-lavanderia", "csharp-lavanderia.csproj", "{A29C9B22-69AA-4EE2-A34B-423DC7CF6CBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A29C9B22-69AA-4EE2-A34B-423DC7CF6CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29C9B22-69AA-4EE2-A34B-423DC7CF6CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29C9B22-69AA-4EE2-A34B-423DC7CF6CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29C9B22-69AA-4EE2-A34B-423DC7CF6CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9999BEC-6DCC-46D1-98C3-181EB04BBC70}
+	EndGlobalSection
+EndGlobal
