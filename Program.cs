@@ -14,59 +14,79 @@ using System;
 //    lavatrici[i] = new Laundry(); CREA 5 LAVATRICI UGUALI 
 //}
 //lavatrici
-Laundry lavatrice1 = new Laundry("lavatrice1", 1, 0.50, 1, 500);
-Laundry lavatrice2 = new Laundry("lavatrice2", 1, 0.50, 1, 500);
-Laundry lavatrice3 = new Laundry("lavatrice3", 1, 0.50, 1, 500);
-Laundry lavatrice4 = new Laundry("lavatrice4", 1, 0.50, 1, 500);
-Laundry lavatrice5 = new Laundry("lavatrice5", 1, 0.50, 1, 500);
-
-Laundry asciugatrice1 = new Laundry("asciugatrice1", 1, 0.50);
-Laundry asciugatrice2 = new Laundry("asciugatrice2", 1, 0.50);
-Laundry asciugatrice3 = new Laundry("asciugatrice3", 1, 0.50);
-Laundry asciugatrice4 = new Laundry("asciugatrice4", 1, 0.50);
-Laundry asciugatrice5 = new Laundry("asciugatrice5", 1, 0.50);
-
-if (!lavatrice1.Start())
-{
-    Console.WriteLine("lavatrice spenta");
-}
-else
-{
-    Console.WriteLine("lavatrice accesa");
-}
+Laundry[] arrayLavatrici = new Laundry[5];
+Laundry lavatrice1 = new Laundry("lavatrice1", 1, 0.50, 1, 500, arrayLavatrici);
+Laundry lavatrice2 = new Laundry("lavatrice2", 1, 0.50, 1, 500, arrayLavatrici);
+Laundry lavatrice3 = new Laundry("lavatrice3", 1, 0.50, 1, 500, arrayLavatrici);
+Laundry lavatrice4 = new Laundry("lavatrice4", 1, 0.50, 1, 500, arrayLavatrici);
+Laundry lavatrice5 = new Laundry("lavatrice5", 1, 0.50, 1, 500, arrayLavatrici);
+//Array lavatrici da usare
 
 
-Console.WriteLine(lavatrice1.IsActive);
+lavatrice1.Print();
+//arrayLavatrici = { lavatrice1, lavatrice2, lavatrice3, lavatrice4, lavatrice5 };
+
+
+//Laundry asciugatrice1 = new Laundry("asciugatrice1", 1, 0.50);
+//Laundry asciugatrice2 = new Laundry("asciugatrice2", 1, 0.50);
+//Laundry asciugatrice3 = new Laundry("asciugatrice3", 1, 0.50);
+//Laundry asciugatrice4 = new Laundry("asciugatrice4", 1, 0.50);
+//Laundry asciugatrice5 = new Laundry("asciugatrice5", 1, 0.50);
+
+
+//Laundry ProgrammaLavaggio = new Laundry();
+
+//Laundry[] arrayAsciugatrici = { asciugatrice1, asciugatrice2, asciugatrice3, asciugatrice4, asciugatrice5 };
+
+//ciclo sull'array di lavatrici per determinare quelle in funzione e quelle spente
+    
+
 
 
 public class Laundry
 {
+
+    public Laundry[] ArrayLavatrici { get; set; }
+
+    public Laundry[] ArrayAsciugatrici { get; set; }
+
     public string Model { get; private set; }
     public int Token { get; set; }
 
-    public int IsActive{ get; set; }
+    public int IsActive { get; set; }
 
     public double TokenPrice { get; set; }
     public int Detergent { get; set; }
     public int Softener { get; set; }
 
     //costruttore asciugatrici visto che non hanno il detergente
-    public Laundry(string model, int token, double tokenPrice)
+    public Laundry(string model, int token, double tokenPrice, Laundry[] arrayAsciugatrici)
     {
         this.Model = model;
         this.IsActive = new Random().Next(0, 2);
         this.TokenPrice = tokenPrice;
+        this.ArrayAsciugatrici = arrayAsciugatrici;
     }
 
-    public Laundry(string model, int token, double tokenPrice, int detergent, int softner)
+    public Laundry(string model, int token, double tokenPrice, int detergent, int softner, Laundry[] arrayLavatrici)
     {
         this.Model = model;
+
         this.Token = token;
         this.IsActive = new Random().Next(0, 2);
-        this.TokenPrice=tokenPrice;
+        this.TokenPrice = tokenPrice;
         this.Detergent = detergent;
         this.Softener = softner;
+        this.ArrayLavatrici = arrayLavatrici;
     }
+
+//costruttore per i programmi
+    //public Laundry()
+    //{
+
+    //}
+
+
 
     public bool Start()
     {
@@ -78,6 +98,42 @@ public class Laundry
         {
             return true;
         }
+
     }
+
+    public void Print()
+    {
+        for (int i = 0; i < this.ArrayLavatrici.Length; i++)
+        {
+            if (!this.ArrayLavatrici[i].Start())
+            {
+                Console.WriteLine((i + 1) + " lavatrice spenta");
+            }
+            else
+            {
+                Console.WriteLine((i + 1) + " lavatrice accesa");
+            }
+
+
+            Console.WriteLine(this.ArrayLavatrici[i].IsActive);
+
+        }
+        //ciclo sull'array di asciugatrici per determinare quelle in funzione e quelle spente
+        for (int i = 0; i < this.ArrayAsciugatrici.Length; i++)
+        {
+            if (!this.ArrayAsciugatrici[i].Start())
+            {
+                Console.WriteLine("Asciugatrice spenta");
+            }
+            else
+            {
+                Console.WriteLine("Asciugatrice accesa");
+            }
+
+
+            Console.WriteLine(this.ArrayAsciugatrici[i].IsActive);
+        }
+    }    
+    
 }
 
