@@ -45,7 +45,7 @@ public abstract class Macchina
     public abstract bool inFunzione();
 
 
-   
+    //public abstract void DettaglioMacchina();
 
     
     

@@ -66,14 +66,41 @@ switch (inputUtente)
         Console.WriteLine("dettaglio macchina");
         Console.WriteLine("inserisci il modello per sapere le specifiche");
         string inputModello = Console.ReadLine();
-            if (inputModello == lavatrice.Modello || inputModello == asciugatrice.Modello)
+        if (inputModello == lavatrice.Modello || inputModello == asciugatrice.Modello)
+        {
+            // nome modello, se il macchinario singolo è in funzione, tipo di programma lavaggio quantità detersivo presente, durata lavaggio e tempo rimanente alla fine
+            Console.WriteLine("modello: {0}", lavatrice.Modello);
+            bool lavatriceSingola = lavatrice.inFunzione();
+            if (lavatriceSingola)
             {
-                Console.WriteLine("stampa specifiche");
-            } 
-            else 
-            {
-                Console.WriteLine("non abbiamo questo modello in negozio");
+                Console.WriteLine(lavatrice + " in funzione");
             }
+            else
+            {
+                Console.WriteLine(lavatrice + " spenta");
+            }
+            //Console.WriteLine("programma in uso {0}", lavatrice.ProgrammaInUso.Nome);
+            int detersivo = lavatrice.DetersivoRimasto();
+            Console.WriteLine("detersivo presente {0}", detersivo);
+            int ammorbidente = lavatrice.AmmorbidenteRimasto();
+            Console.WriteLine("ammorbidente presente {0}", ammorbidente);
+            //Console.WriteLine("durata lavaggio: {0}", lavatrice.ProgrammaInUso.Durata);
+
+            //bool asciugatriceSingola = asciugatrice.inFunzione();
+            //if (asciugatriceSingola)
+            //{
+            //    Console.WriteLine(asciugatrice + " in funzione");
+            //}
+            //else
+            //{
+            //    Console.WriteLine(asciugatrice + " spenta");
+            //}
+        }
+
+        else
+        {
+            Console.WriteLine("non abbiamo questo modello in negozio");
+        }
 
         break;
 
@@ -83,6 +110,11 @@ switch (inputUtente)
         break;
 }
 
+//TempoRimanente = new Random().Next(0, ProgrammaInEsecuzione.Durata + 1);
+//public void SimulaAvanzamento()
+//{
+//    TempoRimanente = new Random().Next(0, TempoRimanente);
+//}
 
 
 

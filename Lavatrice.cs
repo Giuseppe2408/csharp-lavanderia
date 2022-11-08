@@ -36,7 +36,17 @@ public class Lavatrice : Macchina
         return false;
     }
     //nome modello, se il macchinario singolo è in funzione, tipo di programma lavaggio quantità detersivo presente, durata lavaggio e tempo rimanente alla fine
-    public DetersivoRimasto
+    public int DetersivoRimasto()
+    {
+        return Detersivo - ProgrammaInUso.ConsumoDetersivo; //tolgo dal detersivo totale il consumo di detersivo del programma in uso ma una sola volta
+    }
+
+    public int AmmorbidenteRimasto()
+    {
+        return Ammorbidente - ProgrammaInUso.ConsumoAmmorbidente; //tolgo dal ammorbidente totale il consumo di ammorbidente del programma in uso ma una sola volta
+    }
+
+    
 }
 
 
