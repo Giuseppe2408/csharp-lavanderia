@@ -68,33 +68,45 @@ switch (inputUtente)
         string inputModello = Console.ReadLine();
         if (inputModello == lavatrice.Modello || inputModello == asciugatrice.Modello)
         {
-            // nome modello, se il macchinario singolo è in funzione, tipo di programma lavaggio quantità detersivo presente, durata lavaggio e tempo rimanente alla fine
-            Console.WriteLine("modello: {0}", lavatrice.Modello);
-            bool lavatriceSingola = lavatrice.inFunzione();
-            if (lavatriceSingola)
+            for (int i = 0; i < lavatrici.Length; i++)
             {
-                Console.WriteLine(lavatrice + " in funzione");
+                // nome modello, se il macchinario singolo è in funzione, tipo di programma lavaggio quantità detersivo presente, durata lavaggio e tempo rimanente alla fine
+                Console.WriteLine("modello: {0}", lavatrici[i].Modello);
+                bool lavatriciSingola = lavatrici[i].inFunzione();
+                if (lavatriciSingola)
+                {
+                    Console.WriteLine(lavatrici[i] + " in funzione");
+                }
+                else
+                {
+                    Console.WriteLine(lavatrici[i] + " spenta");
+                }
             }
-            else
-            {
-                Console.WriteLine(lavatrice + " spenta");
-            }
-            //Console.WriteLine("programma in uso {0}", lavatrice.ProgrammaInUso.Nome);
-            int detersivo = lavatrice.DetersivoRimasto();
+            //Console.WriteLine("programma in uso {0}", lavatrici[i].ProgrammaInUso.Nome);
+            int detersivo = lavatrici[i].DetersivoRimasto();
             Console.WriteLine("detersivo presente {0}", detersivo);
-            int ammorbidente = lavatrice.AmmorbidenteRimasto();
+            int ammorbidente = lavatrici[i].AmmorbidenteRimasto();
             Console.WriteLine("ammorbidente presente {0}", ammorbidente);
-            //Console.WriteLine("durata lavaggio: {0}", lavatrice.ProgrammaInUso.Durata);
+                //Console.WriteLine("durata lavaggio: {0}", lavatrice.ProgrammaInUso.Durata);
 
-            //bool asciugatriceSingola = asciugatrice.inFunzione();
-            //if (asciugatriceSingola)
-            //{
-            //    Console.WriteLine(asciugatrice + " in funzione");
-            //}
-            //else
-            //{
-            //    Console.WriteLine(asciugatrice + " spenta");
-            //}
+
+                for (int i = 0; i < asciugatrici.Length; i++)
+                {
+                    // nome modello, se il macchinario singolo è in funzione, tipo di programma lavaggio quantità detersivo presente, durata lavaggio e tempo rimanente alla fine
+                    Console.WriteLine("modello: {0}", asciugatrici[i].Modello);
+                    bool asciugatriciSingola = asciugatrici[i].inFunzione();
+                    if (asciugatriciSingola)
+                    {
+                        Console.WriteLine(asciugatrici[i] + " in funzione");
+                    }
+                    else
+                    {
+                        Console.WriteLine(asciugatrici[i] + " spenta");
+                    }
+                    //Console.WriteLine("programma in uso {0}", asciugatrici[i].ProgrammaInUso.Nome);
+                
+                }
+      
         }
 
         else
