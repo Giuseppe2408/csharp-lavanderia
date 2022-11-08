@@ -10,7 +10,11 @@ public class Lavatrice : Macchina
 
     public int Ammorbidente { get; set; }
 
-    public ProgrammaDiLavaggio[] arrayProgrammi;
+    public ProgrammaDiLavaggio[] arrayProgrammi = new ProgrammaDiLavaggio[3];
+
+    public ProgrammaDiLavaggio rinfrescante = new ProgrammaDiLavaggio("Rinfrescante", 20, 5, 20, 2);
+
+    
 
     public ProgrammaDiLavaggio ProgrammaInUso { get; private set; } 
 
@@ -31,11 +35,8 @@ public class Lavatrice : Macchina
 
         return false;
     }
-
-    public void CalcoloConsumoAmmorbidente()
-    {
-
-    }
+    //nome modello, se il macchinario singolo è in funzione, tipo di programma lavaggio quantità detersivo presente, durata lavaggio e tempo rimanente alla fine
+    public DetersivoRimasto
 }
 
 
